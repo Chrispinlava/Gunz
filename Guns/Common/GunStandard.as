@@ -52,7 +52,7 @@ void onCommand(CBlob@ this, u8 cmd, CBitStream @params) {
 				ammo.set_s32("bomb_timer", getGameTime()+20);
 			}
 			
-			playSound(this, FIRE_SOUND);
+			sprite.PlaySound(FIRE_SOUND);
 
 			// animate muzzle fire
 			sprite.animation.frame = 1 + XORRandom(3);
@@ -88,26 +88,16 @@ f32 getAimAngle(CBlob@ this, CBlob@ holder) {
  	} else {
  		angle =0 - aimvector.Angle();
  	}
- 	/*while(angle > 360) {
- 		angle -= 360;
- 	}
- 	while(angle < 0) {
- 		angle += 360;
- 	}
 
-	if(angle > 70 && angle < 110) {
-		angle = 70;
-	} else if(angle < 290 && angle > 250) {
-		angle = 290;
-	} 	
- 	print("" + angle);*/
     return angle;
 }
 
 void onAttach(CBlob@ this, CBlob@ attached, AttachmentPoint @attachedPoint) {
 	this.getCurrentScript().runFlags &= ~Script::tick_not_sleeping;
 	this.SetDamageOwnerPlayer(attached.getPlayer());
-	playSound(this, "PickupGun.ogg");
+
+	CSprite@ sprite = this.getSprite();
+	sprite.PlaySound("PickupGun.ogg");
 }
 
 void onDetach(CBlob@ this, CBlob@ detached, AttachmentPoint @detachedPoint) {
@@ -120,16 +110,6 @@ void onDetach(CBlob@ this, CBlob@ detached, AttachmentPoint @detachedPoint) {
     this.set_bool("beginReload", false);
 	this.set_bool("doReload", false);
 	this.set_u8("actionInterval", 0);
-}
-
-void playSound(CBlob@ this, string soundName) {
-	CBlob@ holder = this.getAttachments().getAttachmentPointByName("PICKUP").getOccupied();
-	if(holder !is null) {
-		CSprite@ holderSprite = holder.getSprite();
-		if(holderSprite !is null) {
-			holderSprite.PlaySound(soundName);
-		}
-	}
 }
 
 void onRender(CSprite@ this) {
