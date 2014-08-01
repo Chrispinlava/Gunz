@@ -708,7 +708,7 @@ shared class TDMCore : RulesCore
 
 	void GiveSpawnResources( CBlob@ blob, CPlayer@ player )
 	{
-		int randNum = XORRandom(9);
+		int randNum = XORRandom(10);
 		string gun;
 		
 		if(randNum == 0) {
@@ -729,12 +729,17 @@ shared class TDMCore : RulesCore
 			gun = "plasma";
 		} else if (randNum == 8) {
 			gun = "goldengun";
+		} else if (randNum == 9) {
+			gun = "flamethrower";
 		}
 		//m1
-		//flamey
 
-		CBlob@ g = server_CreateBlob(gun);
-		blob.server_AttachTo(g, "PICKUP");
+		CRules@ rules = getRules();
+		
+		if(rules.isWarmup()) {
+			CBlob@ g = server_CreateBlob(gun);
+			blob.server_AttachTo(g, "PICKUP");
+		} 
 	}
 
 };
