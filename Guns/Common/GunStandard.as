@@ -40,7 +40,7 @@ void onCommand(CBlob@ this, u8 cmd, CBitStream @params) {
 				}
 
 				velocity.RotateBy(angle);
-				ammo.setVelocity( velocity * PROJECTILE_SPEED );
+				ammo.setVelocity( holder.getVelocity() + velocity * PROJECTILE_SPEED );
 
 				ammo.set_f32("dmg", BULLET_DAMAGE);
 				ammo.IgnoreCollisionWhileOverlapped(holder);
