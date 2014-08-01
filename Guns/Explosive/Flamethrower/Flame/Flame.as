@@ -42,7 +42,7 @@ void onTick(CBlob@ this)
 	f32 angle = (this.getVelocity()).Angle();
 	this.setAngleDegrees(-angle);
 	CShape@ shape = this.getShape();
-	shape.SetGravityScale( 0.0f );
+	shape.SetGravityScale( 0.4f );
 
 	if(this.getTickSinceCreated() >= FUSE) {
 		boom(this);

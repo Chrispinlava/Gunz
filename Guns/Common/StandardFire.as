@@ -59,14 +59,23 @@ void onTick(CBlob@ this) {
 					reload(this, holder);
 					playSound(this, RELOAD_SOUND);
 					this.set_bool("doReload", false);
-				} else if (point.isKeyPressed(key_action1)) {
-					if(this.get_u8("clip") > 0) {
-						shoot(this, aimangle, holder);
-						actionInterval = FIRE_INTERVAL;
-					} else if(this.get_bool("beginReload") == false) {
+				} else if (point.isKeyPressed(key_action1)) 
+				{
+					if ( this.isInWater() )
+					{
 						playSound(this, "EmptyClip.ogg");
 						actionInterval = NO_AMMO_INTERVAL;
-					} 
+					}				
+					else if(this.get_u8("clip") > 0) 
+					{
+						shoot(this, aimangle, holder);
+						actionInterval = FIRE_INTERVAL;
+					}
+					else if( this.get_bool("beginReload") == false ) 
+					{
+						playSound(this, "EmptyClip.ogg");
+						actionInterval = NO_AMMO_INTERVAL;
+					}
 				}
 				this.set_u8("actionInterval", actionInterval);	
 			}
