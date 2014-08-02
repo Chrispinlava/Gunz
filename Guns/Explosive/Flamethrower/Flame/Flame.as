@@ -42,13 +42,12 @@ void onTick(CBlob@ this)
 	f32 angle = (this.getVelocity()).Angle();
 	this.setAngleDegrees(-angle);
 	CShape@ shape = this.getShape();
-	shape.SetGravityScale( 0.4f );
+	shape.SetGravityScale( 0.2f );
 
 	if(this.getTickSinceCreated() >= FUSE) {
 		boom(this);
-	} else if(this.isOnGround() 
-	) {
-	getMap().server_setFireWorldspace(this.getPosition(), true);
-	//boom(this);
+	} else if(this.isOnGround()) {
+		getMap().server_setFireWorldspace(this.getPosition(), true);
+		//boom(this);
 	}
 }
