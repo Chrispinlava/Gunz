@@ -11,12 +11,13 @@ const f32 ARROW_PUSH_FORCE = 22.0f;
 
 //blob functions
 void onInit(CBlob@ this) {
+	this.getShape().getVars().waterDragScale = 70.0f;
     CShape@ shape = this.getShape();
 	ShapeConsts@ consts = shape.getConsts();
     consts.mapCollisions = false;	 // weh ave our own map collision
 	consts.bullet = true;
 	consts.net_threshold_multiplier = 4.0f;
-	this.server_SetTimeToDie( 5.0f );	
+	this.server_SetTimeToDie(10.0f);	
 	this.Tag("projectile");
 }
 
@@ -28,7 +29,7 @@ void onCollision(CBlob@ this, CBlob@ blob, bool solid, Vec2f normal, Vec2f point
 
 
 		f32 dmg = blob.getTeamNum() == this.getTeamNum() ? 0.0f : this.get_f32("dmg");		
-		this.server_Hit( blob, point1, normal, dmg, Hitters::arrow);
+		this.server_Hit(blob, point1, normal, dmg, Hitters::arrow);
 	}
 }
 

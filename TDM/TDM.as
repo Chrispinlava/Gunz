@@ -734,12 +734,8 @@ shared class TDMCore : RulesCore
 		}
 		//m1
 
-		CRules@ rules = getRules();
-		
-		if(rules.isWarmup()) {
-			CBlob@ g = server_CreateBlob(gun);
-			blob.server_AttachTo(g, "PICKUP");
-		} 
+		CBlob@ g = server_CreateBlob(gun);
+		blob.server_AttachTo(g, "PICKUP");
 	}
 
 };

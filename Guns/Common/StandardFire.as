@@ -43,7 +43,8 @@ void onTick(CBlob@ this) {
 				CControls@ controls = holder.getControls();
 				if(controls !is null) {
 					if(controls.isKeyJustPressed(KEY_KEY_R) 
-						&& this.get_bool("beginReload") == false) {
+						&& this.get_bool("beginReload") == false
+						&& this.get_u8("clip") < CLIP) {
 						this.set_bool("beginReload", true);				
 					}
 				}

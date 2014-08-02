@@ -3,8 +3,8 @@ const u32 FUSE = 120;
 void onInit(CBlob@ this) {
     this.getShape().getVars().waterDragScale = 8.0f;
     
-    this.set_f32("explosive_radius", 36.0f);
-    this.set_f32("explosive_damage", 7.5f);
+    this.set_f32("explosive_radius", 18.0f);
+    this.set_f32("explosive_damage", 4.0f);
     this.set_f32("map_damage_radius", 36.0f);
     this.set_f32("map_damage_ratio", 0.5f);
     this.set_bool("map_damage_raycast", true);
