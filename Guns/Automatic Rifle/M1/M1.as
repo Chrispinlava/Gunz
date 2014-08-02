@@ -16,6 +16,8 @@ const string FIRE_SOUND = "AutoFire.ogg";
 const string RELOAD_SOUND  = "Reload.ogg";
 
 const Vec2f RECOIL = Vec2f(1.0f,0.0);
+const float BULLET_OFFSET_X = 11;
+const float BULLET_OFFSET_Y = 1;
 
 #include "StandardFire.as";
 #include "GunStandard";

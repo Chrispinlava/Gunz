@@ -16,6 +16,8 @@ const string FIRE_SOUND = "PlasmaFire.ogg";
 const string RELOAD_SOUND  = "PlasmaReload.ogg";
 
 const Vec2f RECOIL = Vec2f(1.0f,0.0);
+const float BULLET_OFFSET_X = 4;
+const float BULLET_OFFSET_Y = 2;
 
 #include "StandardFire.as";
 #include "GunStandard";

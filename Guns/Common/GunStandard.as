@@ -28,7 +28,7 @@ void onCommand(CBlob@ this, u8 cmd, CBitStream @params) {
 			Vec2f velocity(1,0);
 			CBlob@ ammo = server_CreateBlob(AMMO_TYPE);
 			if(ammo !is null) {
-				Vec2f offset(10,0);
+				Vec2f offset(BULLET_OFFSET_X, BULLET_OFFSET_Y);
 				
 				if(this.isFacingLeft()) {
 					offset.RotateBy(angle, Vec2f(-8,-2));
