@@ -110,6 +110,10 @@ void onDetach(CBlob@ this, CBlob@ detached, AttachmentPoint @detachedPoint) {
     this.set_bool("beginReload", false);
 	this.set_bool("doReload", false);
 	this.set_u8("actionInterval", 0);
+
+	if(this.get_u8("clip") == 0 && this.get_u8("total") == 0) {
+		this.server_SetTimeToDie(5);
+	}
 }
 
 void onRender(CSprite@ this) {
