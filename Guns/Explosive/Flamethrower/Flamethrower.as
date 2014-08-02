@@ -14,7 +14,7 @@ const string AMMO_TYPE = "flame";
 const string FIRE_SOUND = "FlamethrowerFire.ogg";
 const string RELOAD_SOUND  = "Reload.ogg";
 
-const Vec2f RECOIL = Vec2f(1.0f,0.0);
+const Vec2f RECOIL = Vec2f(0.0f,0.0);
 
 #include "StandardFire.as";
 #include "GunStandard";
