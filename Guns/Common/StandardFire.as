@@ -26,7 +26,9 @@ void onTick(CBlob@ this) {
 
 	        CShape@ shape = this.getShape();
 	        CSprite@ sprite = this.getSprite();
-	        const f32 aimangle = getAimAngle(this,holder);
+	        
+			Vec2f aimvector = holder.getAimPos() - this.getPosition();
+ 			f32 aimangle = 0 - aimvector.Angle() + (this.isFacingLeft() == true ? 180.0f : 0);
 
 	        // rotate towards mouse cursor
 	        sprite.ResetTransform();

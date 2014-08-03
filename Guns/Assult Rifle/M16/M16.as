@@ -18,9 +18,5 @@ const Vec2f RECOIL = Vec2f(1.0f,0.0);
 const float BULLET_OFFSET_X = 10;
 const float BULLET_OFFSET_Y = 0;
 
-//const string GS_IS_BURSTING = "isBursting";
-//const string GS_BURST_COUNT = "burstCount";
-//const uint8 MAX_BURST = 3;
-
 #include "StandardFire.as";
 #include "GunStandard";

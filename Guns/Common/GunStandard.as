@@ -80,18 +80,6 @@ void onCommand(CBlob@ this, u8 cmd, CBitStream @params) {
 	}
 }
 
-f32 getAimAngle(CBlob@ this, CBlob@ holder) {
- 	Vec2f aimvector = holder.getAimPos() - this.getPosition();
- 	f32 angle;
- 	if(this.isFacingLeft() == true) {
- 		angle =0 - aimvector.Angle() + 180.0f;
- 	} else {
- 		angle =0 - aimvector.Angle();
- 	}
-
-    return angle;
-}
-
 void onAttach(CBlob@ this, CBlob@ attached, AttachmentPoint @attachedPoint) {
 	this.getCurrentScript().runFlags &= ~Script::tick_not_sleeping;
 	this.SetDamageOwnerPlayer(attached.getPlayer());
@@ -104,7 +92,10 @@ void onDetach(CBlob@ this, CBlob@ detached, AttachmentPoint @detachedPoint) {
     CSprite@ sprite = this.getSprite();
     sprite.ResetTransform();
     sprite.animation.frame = 0;
-    this.setAngleDegrees(getAimAngle(this,detached));
+
+     Vec2f aimvector = detached.getAimPos() - this.getPosition();
+ 	f32 angle = 0 - aimvector.Angle() + (this.isFacingLeft() == true ? 180.0f : 0);
+    this.setAngleDegrees(angle);
 
     //Reset reload and interval
     this.set_bool("beginReload", false);
