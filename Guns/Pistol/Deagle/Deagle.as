@@ -1,7 +1,7 @@
 #include "Hitters.as";
 
 const uint8 FIRE_INTERVAL = 25;
-const float BULLET_DAMAGE = 1.5;
+const float BULLET_DAMAGE = 2;
 const uint8 PROJECTILE_SPEED = 20; 
 const float TIME_TILL_DIE = 0.5;
 

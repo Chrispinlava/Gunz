@@ -19,6 +19,14 @@ void boom(CBlob@ this) {
 	this.server_Die();
 }
 
+bool doesCollideWithBlob(CBlob@ this, CBlob@ blob) {
+	bool check = this.getTeamNum() == blob.getTeamNum();
+	if(check) {
+		return false;
+	}
+	return true;
+}
+
 void onCollision(CBlob@ this, CBlob@ blob, bool solid) {
 	if(blob !is null && this.getTeamNum() != blob.getTeamNum()) {
 		if(blob.hasTag("door") 

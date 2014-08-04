@@ -40,12 +40,7 @@ bool doesCollideWithBlob(CBlob@ this, CBlob@ blob) {
 		check = (shape.isStatic() && !shape.getConsts().platform);
 	}
 
-	if (check) {
-		return true;
-	}
-
-	string bname = blob.getName();
-	if(bname == "fishy" || bname == "food") {//anything to always hit
+	if(check) {
 		return true;
 	}
 
