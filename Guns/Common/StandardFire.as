@@ -9,6 +9,8 @@ void onInit(CBlob@ this) {
     this.addCommandID("shoot");
     this.addCommandID("reload");
 
+    this.Tag("gun");
+
     this.set_u8("clip", CLIP);
     this.set_u8("total", TOTAL);
 	
